@@ -1,0 +1,42 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+
+  await page.goto('http://localhost:3000/');
+  await page.locator('span').click();
+  await page.getByRole('button', { name: '+ Add New Task' }).click();
+  await page.getByRole('textbox', { name: 'Task Name Description' }).click();
+  await page.getByRole('textbox', { name: 'Task Name Description' }).fill('my first task');
+  await page.getByRole('textbox', { name: 'e.g. It\'s always good to take' }).click();
+  await page.getByRole('textbox', { name: 'e.g. It\'s always good to take' }).fill('just see if the task will be created or not');
+  await page.getByRole('img', { name: 'delete-column-icon' }).first().click();
+  await page.getByRole('img', { name: 'delete-column-icon' }).click();
+  await page.getByRole('button', { name: 'Create Task' }).click();
+  await page.getByText('my first task').click();
+  await page.locator('div').filter({ hasText: /^my first task$/ }).click();
+  await page.getByRole('img', { name: 'task options btn' }).click();
+  await page.getByText('Delete Task').click();
+  await page.getByRole('button', { name: 'Delete' }).click();
+  await page.getByText('+ Create New Board').click();
+  await page.getByRole('textbox', { name: 'Board Name' }).click();
+  await page.getByRole('textbox', { name: 'Board Name' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Board Name' }).fill('M');
+  await page.getByRole('textbox', { name: 'Board Name' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Board Name' }).fill('My ');
+  await page.getByRole('textbox', { name: 'Board Name' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Board Name' }).fill('My ATS');
+  await page.getByRole('textbox', { name: 'Board Name' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Board Name' }).fill('My ATS board');
+  await page.getByRole('button', { name: '+ Add New Column' }).click();
+  await page.getByRole('textbox').nth(3).click();
+  await page.getByRole('textbox').nth(3).press('CapsLock');
+  await page.getByRole('textbox').nth(3).fill('D');
+  await page.getByRole('textbox').nth(3).press('CapsLock');
+  await page.getByRole('textbox').nth(3).fill('Done');
+  await page.getByRole('button', { name: 'Create New Board' }).click();
+  await page.getByText('My ATS board').click();
+  await page.getByRole('img', { name: 'menu for deleting or editing' }).click();
+  await page.getByText('Delete board').click();
+  await page.getByRole('button', { name: 'Delete' }).click();
+  await page.locator('span').click();
+});
