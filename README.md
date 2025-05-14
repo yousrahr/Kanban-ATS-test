@@ -10,25 +10,34 @@ This project is a web-based Kanban board that allows users to create, update, an
 
 ## Technology Used
 
-- **Playwright**
-- **TypeScript**
-- **Node.js**
-- **Visual Studio Code**
+- Playwright
+- TypeScript
+- Node.js
+- Visual Studio Code
 
 ## How to Set Up and Run the Tests
 
-1. Clone the repository containing my test scripts:
-''bash
-  git clone https://github.com/yousrahr/kanban-test-playwright.git
-  cd kanban-test-playwright
+```bash
+# Clone this repository
+git clone https://github.com/yousrahr/Kanban-ATS-test.git
+cd Kanban-ATS-test
 
-2.Install project dependencies:
-  npm install
+# Install project dependencies
+npm install
 
-3. Run all test cases:
-  npx playwright test
+# Run all test cases
+npx playwright test
 
-4. To view test results in HTML report format:
-   npx playwright show-report
+# View test results in HTML report format
+npx playwright show-report
 
+Assumptions and Notes
+The selected Kanban application does not include authentication.
 
+The application was tested locally as described in its official GitHub repository.
+
+Tests were created using Playwright's code generation feature and refactored for readability and best practices.
+
+Positive test scenarios are in kanban-test-scenarios.spec.ts.
+
+Negative test scenarios are in negative-kanban-test-scenarios.spec.ts.
